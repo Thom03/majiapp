@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 class Customer(models.Model):
+    owner = models.ForeignKey('auth.User', related_name='customers', on_delete=models.CASCADE, default=1)
     created = models.DateTimeField(auto_now=True)
     first_name = models.CharField(max_length=100, blank=True)
     middle_name = models.CharField(max_length=100, blank=True)
