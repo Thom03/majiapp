@@ -9,6 +9,8 @@ router.register(r'customers', views.CustomerViewSet)
 
 urlpatterns = format_suffix_patterns([
     path('', include(router.urls)),
+    path('users/', views.UserList.as_view()),
+    path('users/<int:pk>/', views.UserDetail.as_view())
 
 
 ])
