@@ -24,11 +24,6 @@ class CustomerViewSet(viewsets.ModelViewSet):
         serializer.save(owner=self.request.user)
 
 
-class UserList(generics.ListAPIview):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-class UserDetail(generics.RetrieveAPIView):
+class UserViewset(viewsets.ReadOnlyModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
